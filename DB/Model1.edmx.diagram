@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7fc3582345a94601bd6c5f0c9b906d36" Name="Diagram1">
+        <EntityTypeShape EntityType="ForbiddenBookshopModel.Books" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForbiddenBookshopModel.Customers" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForbiddenBookshopModel.DisappearedReaders" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForbiddenBookshopModel.Keepers" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForbiddenBookshopModel.Logs" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForbiddenBookshopModel.OrderBooks" Width="1.5" PointX="9.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForbiddenBookshopModel.Orders" Width="1.5" PointX="7.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForbiddenBookshopModel.Roles" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForbiddenBookshopModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ForbiddenBookshopModel.Users" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
+        <AssociationConnector Association="ForbiddenBookshopModel.FK__Disappear__BookI__5629CD9C" ManuallyRouted="false" />
+        <AssociationConnector Association="ForbiddenBookshopModel.FK__OrderBook__BookI__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="ForbiddenBookshopModel.FK__Customers__UserI__4222D4EF" ManuallyRouted="false" />
+        <AssociationConnector Association="ForbiddenBookshopModel.FK__Disappear__Custo__5535A963" ManuallyRouted="false" />
+        <AssociationConnector Association="ForbiddenBookshopModel.FK__Orders__Customer__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="ForbiddenBookshopModel.FK__Keepers__UserID__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="ForbiddenBookshopModel.FK__Logs__UserID__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="ForbiddenBookshopModel.FK__OrderBook__Order__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="ForbiddenBookshopModel.FK__Users__RoleID__3B75D760" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

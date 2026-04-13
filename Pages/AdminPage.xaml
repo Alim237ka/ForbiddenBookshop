@@ -1,0 +1,71 @@
+﻿<Page x:Class="ForbiddenBookshop.Pages.AdminPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ForbiddenBookshop.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AdminPage">
+
+    <TabControl Margin="10" Background="#191919">
+        <TabItem Header="📋 Пользователи" Background="#2F2F2F">
+            <ScrollViewer VerticalScrollBarVisibility="Visible">
+                <StackPanel>
+                    <Button Content="➕ Добавить пользователя" Click="BtnAddUser_Click" Margin="5"/>
+                    <ListBox x:Name="lvUsers">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderBrush="#800000" BorderThickness="1" CornerRadius="5" Margin="5" Padding="10">
+                                    <StackPanel Orientation="Horizontal">
+                                        <StackPanel Width="300">
+                                            <TextBlock Text="{Binding Login}" FontWeight="Bold"/>
+                                            <TextBlock Text="{Binding FullName}" FontSize="12"/>
+                                            <TextBlock Text="{Binding Role.RoleName, StringFormat='Роль: {0}'}" FontSize="12"/>
+                                        </StackPanel>
+                                        <Button Content="✏️ Редактировать" Tag="{Binding UserID}" Click="BtnEditUser_Click" Width="120"/>
+                                        <Button Content="🗑️ Удалить" Tag="{Binding UserID}" Click="BtnDeleteUser_Click" Margin="5,0" Width="120"/>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </StackPanel>
+            </ScrollViewer>
+        </TabItem>
+
+        <TabItem Header="📊 Логи действий" Background="#2F2F2F">
+            <ListBox x:Name="lvLogs">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#800000" BorderThickness="1" CornerRadius="5" Margin="5" Padding="10">
+                            <StackPanel>
+                                <TextBlock Text="{Binding ActionDate, StringFormat='dd.MM.yyyy HH:mm'}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding ActionType, StringFormat='Тип: {0}'}"/>
+                                <TextBlock Text="{Binding ActionDescription}" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding User.Login, StringFormat='Пользователь: {0}'}" FontSize="12"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </TabItem>
+
+        <TabItem Header="👻 Пропавшие читатели" Background="#2F2F2F">
+            <ListBox x:Name="lvDisappeared">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#800000" BorderThickness="1" CornerRadius="5" Margin="5" Padding="10">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Customer.User.FullName, StringFormat='Читатель: {0}'}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding Book.Title, StringFormat='Книга: {0}'}"/>
+                                <TextBlock Text="{Binding DisappearanceDate, StringFormat='Дата: {0:dd.MM.yyyy}'}"/>
+                                <TextBlock Text="{Binding Notes, StringFormat='Примечание: {0}'}" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </TabItem>
+    </TabControl>
+</Page>

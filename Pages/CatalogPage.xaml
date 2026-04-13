@@ -1,0 +1,78 @@
+﻿<Page x:Class="ForbiddenBookshop.Pages.CatalogPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ForbiddenBookshop.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="CatalogPage">
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox x:Name="tbSearch" Grid.Row="0" Margin="5,0,5,10" Height="35" 
+                 TextChanged="TbSearch_TextChanged"/>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5,0,5,10">
+            <TextBlock Text="Фильтр по языку:" VerticalAlignment="Center" Margin="0,0,10,0"/>
+            <ComboBox x:Name="cmbLanguage" Width="150" SelectionChanged="CmbLanguage_SelectionChanged">
+                <ComboBoxItem Content="Все языки" IsSelected="True"/>
+            </ComboBox>
+        </StackPanel>
+
+        <ScrollViewer Grid.Row="2" VerticalScrollBarVisibility="Auto">
+            <ItemsControl x:Name="icBooks">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderBrush="#800000" BorderThickness="2" 
+                                CornerRadius="15" Background="#2F2F2F" 
+                                Width="280" Margin="10" Padding="10"
+                                Effect="{StaticResource ShadowEffect}">
+                            <StackPanel>
+                                <Image Source="/Images/iconItem.png" Width="100" Height="100" Margin="0,5"/>
+                                <TextBlock Text="{Binding Title}" FontWeight="Bold" 
+                                           FontSize="22" TextAlignment="Center" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding Author}" FontSize="14" 
+                                           Foreground="#C0C0C0" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Language, StringFormat='Язык: {0}'}" 
+                                           FontSize="12" Foreground="#800000" TextAlignment="Center" Margin="0,5"/>
+                                <TextBlock Text="{Binding CurseLevel, StringFormat='Уровень проклятия: {0}/10'}" 
+                                           FontSize="12" Foreground="#FF6B6B" TextAlignment="Center"/>
+                                <TextBlock Text="{Binding Price, StringFormat='Цена: {0:C}'}" 
+                                           FontSize="14" FontWeight="Bold" TextAlignment="Center" Margin="0,5"/>
+                                <TextBlock Text="{Binding Stock, StringFormat='В наличии: {0} шт.'}" 
+                                           FontSize="12" Foreground="#6BCB77" TextAlignment="Center"/>
+
+                                <Button x:Name="btnOrder" Content="📦 Заказать" 
+                                        Click="BtnOrder_Click" Tag="{Binding BookID}" 
+                                        Margin="0,10,0,0" Background="#800000"/>
+                                <Button x:Name="btnDetails" Content="🔍 Подробнее" 
+                                        Click="BtnDetails_Click" Tag="{Binding BookID}" 
+                                        Margin="0,5,0,0" Background="#2F2F2F" BorderBrush="#800000"/>
+                                <Button x:Name="btnEdit" Content="✏️ Редактировать" 
+                                        Click="BtnEdit_Click" Tag="{Binding BookID}" 
+                                        Margin="0,5,0,0" Background="#2F2F2F" BorderBrush="#800000"/>
+                                <Button x:Name="btnDelete" Content="🗑️ Удалить" 
+                                        Click="BtnDelete_Click" Tag="{Binding BookID}" 
+                                        Margin="0,5,0,0" Background="#2F2F2F" BorderBrush="#800000"/>
+                                <Button x:Name="btnManage" Content="⚡ Управление проклятием" 
+                                        Click="BtnManage_Click" Tag="{Binding BookID}" 
+                                        Margin="0,5,0,0" Background="#2F2F2F" BorderBrush="#800000"/>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </ScrollViewer>
+    </Grid>
+</Page>
